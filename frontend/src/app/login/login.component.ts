@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+
 
 @Component({
   selector: 'app-login',
@@ -7,21 +7,11 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
-  loginForm: FormGroup;
-
-  constructor(private fb: FormBuilder) {
-    this.loginForm = this.fb.group({
-      username: ['', Validators.required],
-      password: ['', Validators.required]
-    });
-  }
+  loginUser = { username: '', password: '' };
 
   onSubmit(): void {
-    if (this.loginForm.valid) {
-      // Handle the login logic here
-      const { username, password } = this.loginForm.value;
-      console.log('Username:', username);
-      console.log('Password:', password);
-    }
+    // Handle login logic here
+    console.log('Username:', this.loginUser.username);
+    console.log('Password:', this.loginUser.password);
   }
 }
