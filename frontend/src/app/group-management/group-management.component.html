@@ -1,0 +1,31 @@
+<div>
+    <h2>Group Management</h2>
+  
+    <div>
+      <h3>Create Group</h3>
+      <form (ngSubmit)="createGroup(newGroup)" #groupForm="ngForm">
+        <label for="groupName">Group Name:</label>
+        <input type="text" id="groupName" [(ngModel)]="newGroup.name" name="name" required>
+        <button type="submit">Create</button>
+      </form>
+    </div>
+  
+    <div>
+      <h3>Groups</h3>
+      <ul>
+        <li *ngFor="let group of groups">
+          <span>{{ group.name }}</span>
+          <button (click)="viewGroup(group._id)">View</button>
+          <button (click)="updateGroup(group._id, { name: group.name })">Update</button>
+          <button (click)="deleteGroup(group._id)">Delete</button>
+        </li>
+      </ul>
+    </div>
+  
+    <div *ngIf="selectedGroup">
+      <h3>Selected Group</h3>
+      <p>ID: {{ selectedGroup._id }}</p>
+      <p>Name: {{ selectedGroup.name }}</p>
+    </div>
+  </div>
+  

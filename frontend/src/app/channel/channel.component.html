@@ -1,0 +1,31 @@
+<div>
+    <h2>Channel Management</h2>
+  
+    <div>
+      <h3>Create Channel</h3>
+      <form (ngSubmit)="createChannel(newChannel)" #channelForm="ngForm">
+        <label for="channelName">Channel Name:</label>
+        <input type="text" id="channelName" [(ngModel)]="newChannel.name" name="name" required>
+        <button type="submit">Create</button>
+      </form>
+    </div>
+  
+    <div>
+      <h3>Channels</h3>
+      <ul>
+        <li *ngFor="let channel of channels">
+          <span>{{ channel.name }}</span>
+          <button (click)="viewChannel(channel._id)">View</button>
+          <button (click)="updateChannel(channel._id, { name: channel.name })">Update</button>
+          <button (click)="deleteChannel(channel._id)">Delete</button>
+        </li>
+      </ul>
+    </div>
+  
+    <div *ngIf="selectedChannel">
+      <h3>Selected Channel</h3>
+      <p>ID: {{ selectedChannel._id }}</p>
+      <p>Name: {{ selectedChannel.name }}</p>
+    </div>
+  </div>
+  
