@@ -68,7 +68,7 @@ This repository is organised into two main branches:
 
 ## Data Structures
 
-This section describes the main data structures used in the application. These structures represent how different entities like users, groups, channels, and authentication data are organized and stored.
+This section describes the main data structures used in the application. These structures represent how different entities like users, groups, channels, and authentication data are organised and stored.
 
 ### 1. Users
 
